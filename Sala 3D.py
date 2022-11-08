@@ -54,7 +54,7 @@ def bancada():
 
 def PS5():
 
-    glColor3f(1.2,1.2,1.1);
+    glColor3f(1.2,1.2,1.1); #branca
 
     glPushMatrix();
     glTranslated(1.3, 1.2, -1.03);
@@ -62,7 +62,7 @@ def PS5():
     glutSolidCube(2.0);
     glPopMatrix();
 
-    glColor3f(0.0, 0.0, 0.0); 
+    glColor3f(0.0, 0.0, 0.0); #preta
 
     glPushMatrix();
     glTranslated(1.3, 1.1, -0.94);
@@ -1094,7 +1094,6 @@ def iluminacao():
 	
     # Habilita o modelo de colorização de Gouraud
     glShadeModel(GL_SMOOTH);
-    #glShadeModel(GL_FLAT);
 	
     # Define a refletância do material
     glMaterialfv(GL_FRONT, GL_SPECULAR, especularidade);
@@ -1105,25 +1104,25 @@ def iluminacao():
     # Ativa o uso da luz ambiente
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente);
 	
-    # Define os parâmetros da luz de número 0
+    # Define os parâmetros da luz de número 1
     glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbiente);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusa);
     glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecular);
     glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz);
 	
-	# Define os parâmetros da luz de número 1
+	# Define os parâmetros da luz de número 2
     glLightfv(GL_LIGHT1, GL_AMBIENT, luzAmbiente1);
     glLightfv(GL_LIGHT1, GL_DIFFUSE, luzDifusa1);
     glLightfv(GL_LIGHT1, GL_SPECULAR, luzEspecular1);
     glLightfv(GL_LIGHT1, GL_POSITION, posicaoLuz1);
     
-	# Define os parâmetros da luz de número 2
+	# Define os parâmetros da luz de número 3
     glLightfv(GL_LIGHT2, GL_AMBIENT, luzAmbiente);
     glLightfv(GL_LIGHT2, GL_DIFFUSE, luzDifusa);
     glLightfv(GL_LIGHT2, GL_SPECULAR, luzEspecular);
     glLightfv(GL_LIGHT2, GL_POSITION, posicaoLuz2);
     
-	# Define os parâmetros da luz de número 3
+	# Define os parâmetros da luz de número 4
     glLightfv(GL_LIGHT3, GL_AMBIENT, luzAmbiente);
     glLightfv(GL_LIGHT3, GL_DIFFUSE, luzDifusa);
     glLightfv(GL_LIGHT3, GL_SPECULAR, luzEspecular);
@@ -1131,11 +1130,7 @@ def iluminacao():
     
     # Habilita a definição da cor do material a partir da cor corrente
     glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_LIGHTING);#Habilita o uso de iluminação
-#    glEnable(GL_LIGHT0); # Habilita a luz de número 0
-#    glEnable(GL_LIGHT1); # Habilita a luz de número 0
-#    glEnable(GL_LIGHT2); # Habilita a luz de número 0
-#    glEnable(GL_LIGHT3); # Habilita a luz de número 0
+    glEnable(GL_LIGHTING);
     glEnable(GL_DEPTH_TEST); # Habilita o depth-buffering
     glEnable(GL_NORMALIZE);
 
@@ -1148,12 +1143,8 @@ def parametrosVisualizacao():
     
 	# Especifica a projeção perspectiva
     gluPerspective(angulo, fAspect, 0.1, 500);
-    #gluPerspective(angulo, 1, 0.5, 50);
-    #glOrtho(-1.8, 1.8, -1.8, 2, 0.8, 200.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    # Especifica posição do observador e do alvo
-    #gluLookAt(2.00 + anguloX, 1.00 + anguloY, 2.0, 0.0, 0.5, 0.25, 0.0, 1.0, 0.0);
     gluLookAt(5.0, 5.0, 5.0, 0, 1, 0, 0.0, 1.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
